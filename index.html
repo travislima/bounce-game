@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bounce Game</title>
+  <title>Jumper Game</title>
   <style>
     * {
       margin: 0;
@@ -12,7 +12,7 @@
     }
 
     body {
-      background: #1a1a2e;
+      background: #0f0e17;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,9 +27,9 @@
 
     canvas {
       display: block;
-      border: 2px solid #e94560;
-      border-radius: 4px;
-      background: #16213e;
+      border: 2px solid #ff8906;
+      border-radius: 8px;
+      background: #0f0e17;
     }
 
     #overlay {
@@ -42,46 +42,51 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(22, 33, 62, 0.85);
-      color: #eee;
-      border-radius: 4px;
+      background: rgba(15, 14, 23, 0.9);
+      color: #fffffe;
+      border-radius: 8px;
     }
 
     #overlay h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
-      color: #e94560;
+      color: #ff8906;
     }
 
     #overlay p {
       font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: #ccc;
+      margin-bottom: 0.4rem;
+      color: #a7a9be;
     }
 
-    #overlay .score-display {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: #0f3460;
-      background: #e94560;
-      padding: 0.3rem 1rem;
-      border-radius: 4px;
+    #overlay .final-score {
+      font-size: 1.6rem;
+      margin: 0.8rem 0;
+      color: #fffffe;
       font-weight: bold;
     }
 
+    #overlay .high-score {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #e53170;
+    }
+
     #overlay button {
-      padding: 0.7rem 2rem;
+      padding: 0.8rem 2.5rem;
       font-size: 1.1rem;
       border: none;
-      border-radius: 4px;
-      background: #e94560;
-      color: white;
+      border-radius: 6px;
+      background: #ff8906;
+      color: #0f0e17;
       cursor: pointer;
-      transition: background 0.2s;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.1s;
     }
 
     #overlay button:hover {
-      background: #c73650;
+      background: #e07800;
+      transform: scale(1.05);
     }
 
     .hidden {
@@ -91,10 +96,11 @@
 </head>
 <body>
   <div id="gameContainer">
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <canvas id="gameCanvas" width="480" height="700"></canvas>
     <div id="overlay">
-      <h1>Bounce Game</h1>
-      <p>Break all the bricks! Use arrow keys or mouse to move the paddle.</p>
+      <h1>Jumper</h1>
+      <p>Use arrow keys or A/D to move.</p>
+      <p>Jump on platforms to climb higher!</p>
       <button id="startBtn">Start Game</button>
     </div>
   </div>
